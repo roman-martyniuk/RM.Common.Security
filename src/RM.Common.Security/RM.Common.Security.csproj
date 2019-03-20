@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Provides a set of security/cryptography utils and extensions (like a crypto secure random number generation, password hashing, salt generation, encryption etc.).</Description>
+    <Authors>Roman Martyniuk</Authors>
+    <Copyright>© 2019 Roman Martyniuk</Copyright>
+    <PackageReleaseNotes>v.1.0.0 
+
+- Initial Release</PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>security hashing cryptography password generator encryption</PackageTags>
+    <PackageLicenseUrl>https://github.com/roman-martyniuk/RM.Common.Security/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/roman-martyniuk/RM.Common.Security</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\projects\RM\RM.Common.Security\src\RM.Common.Security\RM.Common.Security.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

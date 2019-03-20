@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RM.Common.Security</name>
+    </assembly>
+    <members>
+        <member name="T:RM.Common.Security.CryptoRandom">
+            <summary>
+            Represents a crypto secure random number generator.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.CryptoRandom.Next">
+            <summary>
+            Returns a nonnegative random number.
+            </summary>
+            <returns>A 32-bit signed integer greater than or equal to zero and less than <see cref="F:System.Int32.MaxValue"/>.</returns>
+        </member>
+        <member name="M:RM.Common.Security.CryptoRandom.Next(System.Int32)">
+            <summary>
+            Returns a nonnegative random number less than the specified maximum.
+            </summary>
+            <param name="maxValue">The exclusive upper bound of the random number to be generated. <paramref name="maxValue" /> must be greater than or equal to zero.</param>
+            <returns>A 32-bit signed integer greater than or equal to zero, and less than <code>maxValue</code>;
+            that is, the range of return values ordinarily includes zero but not <paramref name="maxValue" />.
+            However, if <paramref name="maxValue" /> equals zero, <paramref name="maxValue" /> is returned.</returns>
+        </member>
+        <member name="M:RM.Common.Security.CryptoRandom.Next(System.Int32,System.Int32)">
+            <summary>Returns a random number within a specified range.</summary>
+            <param name="minValue">The inclusive lower bound of the random number returned.</param>
+            <param name="maxValue">The exclusive upper bound of the random number returned. <paramref name="maxValue" /> must be greater than or equal to <paramref name="minValue" />.</param>
+            <returns>A 32-bit signed integer greater than or equal to <paramref name="minValue" /> and less than <paramref name="maxValue" />; that is, the range of return values includes <paramref name="minValue" /> but not <paramref name="maxValue" />.
+            If <paramref name="minValue" /> equals <paramref name="maxValue" />, minValue is returned.</returns>
+        </member>
+        <member name="M:RM.Common.Security.CryptoRandom.NextDouble">
+            <summary>
+            Returns a random number between 0.0 and 1.0.
+            </summary>
+            <returns>A double-precision floating point number greater than or equal to 0.0, and less than 1.0.</returns>
+        </member>
+        <member name="M:RM.Common.Security.CryptoRandom.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+        </member>
+        <member name="T:RM.Common.Security.HashersFactory">
+            <summary>Represents a factory of hashing algorithms</summary>
+        </member>
+        <member name="P:RM.Common.Security.HashersFactory.SHA1">
+            <summary>The SHA1 hash algorithm.</summary>
+        </member>
+        <member name="P:RM.Common.Security.HashersFactory.MD5">
+            <summary>The MD5 hash algorithm.</summary>
+        </member>
+        <member name="P:RM.Common.Security.HashersFactory.SHA256">
+            <summary>The SHA256 hash algorithm.</summary>
+        </member>
+        <member name="P:RM.Common.Security.HashersFactory.SHA384">
+            <summary>The SHA384 hash algorithm.</summary>
+        </member>
+        <member name="P:RM.Common.Security.HashersFactory.SHA512">
+            <summary>The SHA512 hash algorithm.</summary>
+        </member>
+        <member name="T:RM.Common.Security.HashExtensions">
+            <summary>Represents extension methods for hashing.</summary>
+        </member>
+        <member name="M:RM.Common.Security.HashExtensions.ComputeHash(System.Byte[],RM.Common.Security.HashType)">
+            <summary>
+            Computes hash of the specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="hashType">The type of hash.</param>
+            <returns>Computed hash.</returns>
+        </member>
+        <member name="M:RM.Common.Security.HashExtensions.ComputeHash(System.Byte[],System.Int32,RM.Common.Security.HashType)">
+            <summary>
+            Computes hash of the specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="iterations">The number of hash iterations.</param>
+            <param name="hashType">The type of hash.</param>
+            <returns>Computed hash.</returns>
+        </member>
+        <member name="M:RM.Common.Security.HashExtensions.ComputeHash(System.String,RM.Common.Security.HashType)">
+            <summary>
+            Computes hash of the specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="hashType">The type of hash.</param>
+            <returns>Computed hash.</returns>
+        </member>
+        <member name="M:RM.Common.Security.HashExtensions.ComputeHash(System.String,System.Int32,RM.Common.Security.HashType)">
+            <summary>
+            Computes hash of the specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="iterations">The number of hash iterations.</param>
+            <param name="hashType">The type of hash.</param>
+            <returns>Computed hash.</returns>
+        </member>
+        <member name="T:RM.Common.Security.HashType">
+            <summary>Represents a set of hashing algorithms.</summary>
+        </member>
+        <member name="F:RM.Common.Security.HashType.SHA512">
+            <summary>The SHA512 hashing algorithm.</summary>
+        </member>
+        <member name="F:RM.Common.Security.HashType.SHA384">
+            <summary>The SHA384 hashing algorithm.</summary>
+        </member>
+        <member name="F:RM.Common.Security.HashType.SHA256">
+            <summary>The SHA256 hashing algorithm.</summary>
+        </member>
+        <member name="F:RM.Common.Security.HashType.MD5">
+            <summary>The MD5 hashing algorithm.</summary>
+        </member>
+        <member name="F:RM.Common.Security.HashType.SHA1">
+            <summary>The SHA1 hashing algorithm.</summary>
+        </member>
+        <member name="T:RM.Common.Security.IEncryptor">
+            <summary>Represents a common interface for encryptor.</summary>
+        </member>
+        <member name="M:RM.Common.Security.IEncryptor.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data to encrypt.</param>
+            <returns>Encrypted data.</returns>
+        </member>
+        <member name="M:RM.Common.Security.IEncryptor.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data to decrypt.</param>
+            <returns>Decrypted data.</returns>
+        </member>
+        <member name="T:RM.Common.Security.IHasher">
+            <summary>Represents a common interface for hashing algorithms.</summary>
+        </member>
+        <member name="M:RM.Common.Security.IHasher.ComputeHash(System.Byte[])">
+            <summary>
+            Computes the hash value for the specified byte array.
+            </summary>
+            <param name="data">The input to compute the hash code for.</param>
+            <returns>The computed hash code.</returns>
+            <exception cref="T:System.ArgumentNullException">data is null.</exception>
+        </member>
+        <member name="M:RM.Common.Security.IHasher.ComputeHash(System.Byte[],System.Int32)">
+            <summary>
+            Computes the hash value for the specified byte array.
+            </summary>
+            <param name="data">The input to compute the hash code for.</param>
+            <param name="iterations">The number of iterations for the operation.</param>
+            <returns>The computed hash code.</returns>
+            <exception cref="T:System.ArgumentNullException">data is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of iterations is less than 1. </exception>
+        </member>
+        <member name="M:RM.Common.Security.IHasher.ComputeHash(System.String)">
+            <summary>
+            Computes the hash value for the specified string.
+            </summary>
+            <param name="data">The input to compute the hash code for.</param>
+            <returns>The computed hash code.</returns>
+            <exception cref="T:System.ArgumentNullException">data is null.</exception>
+        </member>
+        <member name="M:RM.Common.Security.IHasher.ComputeHash(System.String,System.Int32)">
+            <summary>
+            Computes the hash value for the specified string.
+            </summary>
+            <param name="data">The input to compute the hash code for.</param>
+            <param name="iterations">The number of iterations for the operation.</param>
+            <returns>The computed hash code.</returns>
+            <exception cref="T:System.ArgumentNullException">data is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of iterations is less than 1. </exception>
+        </member>
+        <member name="T:RM.Common.Security.PasswordGenerator">
+            <summary>
+            Generates crypto-random passwords and validates that they meet the rules passed in.
+            </summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MinLength">
+            <summary>The min password length.</summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MaxLength">
+            <summary>The max password length.</summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MinLower">
+            <summary>The min number of lowercase letters.</summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MinUpper">
+            <summary>The min number of uppercase letters.</summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MinNumeric">
+            <summary>The min number of digits.</summary>
+        </member>
+        <member name="P:RM.Common.Security.PasswordGenerator.MinSymbols">
+            <summary>The min number of symbols.</summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordGenerator.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:RM.Common.Security.PasswordGenerator" /> class.
+            </summary>
+            <param name="minLength">The min password length.</param>
+            <param name="maxLength">The max password length.</param>
+            <param name="minLower">The min number of lowercase letters.</param>
+            <param name="minUpper">The min number of uppercase letters.</param>
+            <param name="minNumeric">The min number of digits.</param>
+            <param name="minSymbols">The min number of symbols.</param>
+        </member>
+        <member name="M:RM.Common.Security.PasswordGenerator.Generate">
+            <summary>
+            Generates password according to rules specified in constructor.
+            </summary>
+            <returns>Generated random password.</returns>
+        </member>
+        <member name="T:RM.Common.Security.PasswordHash">
+            <summary>Represents a SHA512 password hasher.</summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.#ctor(System.String,RM.Common.Security.Salt)">
+            <summary>
+            Creates a new instance of the <see cref="T:RM.Common.Security.PasswordHash" /> class.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <param name="staticSalt">The static salt.</param>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.ToByteArray">
+            <summary>
+            Returns the byte array representations of the current password hash.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.ToBase64String">
+            <summary>
+            Returns the string representation (Base64) of the current password hash.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.IsValid(System.String,System.String,RM.Common.Security.Salt)">
+            <summary>
+            Checks whether specified <paramref name="password" /> is valid.
+            </summary>
+            <param name="base64EncodedPasswordHash">The Base64 encoded password hash to check.</param>
+            <param name="password">The password to check.</param>
+            <param name="staticSalt">The static salt.</param>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.IsValid(System.Byte[],System.String,RM.Common.Security.Salt)">
+            <summary>
+            Checks whether specified <paramref name="password" /> is valid.
+            </summary>
+            <param name="passwordHash">The password hash to check.</param>
+            <param name="password">The password to check.</param>
+            <param name="staticSalt">The static salt.</param>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.op_Implicit(RM.Common.Security.PasswordHash)~System.String">
+            <summary>
+            An implicit convertion to <see cref="T:System.String" />.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.op_Implicit(RM.Common.Security.PasswordHash)~System.Byte[]">
+            <summary>An implicit convertion to byte array.</summary>
+        </member>
+        <member name="M:RM.Common.Security.PasswordHash.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:RM.Common.Security.RijndaelEncryptor">
+            <summary>Represents a Rijndael encryptor.</summary>
+        </member>
+        <member name="M:RM.Common.Security.RijndaelEncryptor.#ctor(System.String,RM.Common.Security.Salt,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:RM.Common.Security.RijndaelEncryptor" /> class.
+            </summary>
+            <param name="pasword">The password.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The number of encryption iterations.</param>
+        </member>
+        <member name="M:RM.Common.Security.RijndaelEncryptor.Encrypt(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:RM.Common.Security.RijndaelEncryptor.Decrypt(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="T:RM.Common.Security.Salt">
+            <summary>
+            Represents the crypto secure salt for hashing.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.Salt.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:RM.Common.Security.Salt" /> class with the crypto secure randomly generated salt with the default recommended length of 32 bytes (256 bits).
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.Salt.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:RM.Common.Security.Salt" /> class with the crypto secure randomly generated salt with the specified <paramref name="length" />.
+            </summary>
+            <param name="length">The salt length in bytes. Min value is 8. Max value is 64.</param>
+        </member>
+        <member name="M:RM.Common.Security.Salt.#ctor(System.Byte[])">
+            <summary>
+            Create a new instance of the <see cref="T:RM.Common.Security.Salt" /> class based on the byte array.
+            </summary>
+            <param name="salt">The salt as byte array. Min length is 8 bytes and max length is 64.</param>
+        </member>
+        <member name="M:RM.Common.Security.Salt.#ctor(System.String)">
+            <summary>
+            Decodes the salt value from the Base64 encoded string.
+            </summary>
+            <param name="base64EncodedSalt">The salt string to decode.</param>
+        </member>
+        <member name="M:RM.Common.Security.Salt.ToByteArray">
+            <summary>
+            Returns the byte array representations of the current salt.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.Salt.ToBase64String">
+            <summary>
+            Returns the string representation (Base64) of the current salt.
+            </summary>
+        </member>
+        <member name="M:RM.Common.Security.Salt.op_Implicit(RM.Common.Security.Salt)~System.String">
+            <summary>
+            An implicit convertion to <see cref="T:System.String" />.
+            </summary>
+            <param name="salt">The salt to convert.</param>
+            <returns>Converted salt.</returns>
+        </member>
+        <member name="M:RM.Common.Security.Salt.op_Implicit(RM.Common.Security.Salt)~System.Byte[]">
+            <summary>An implicit convertion to byte array.</summary>
+            <param name="salt">The salt to convert.</param>
+            <returns>Converted salt.</returns>
+        </member>
+        <member name="M:RM.Common.Security.Salt.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:RM.Common.Security.Utils.ArrayExtensions.CloneArray(System.Byte[])">
+            <summary>
+            Clones the specified byte <paramref name="array" />.
+            </summary>
+            <param name="array">The byte array to clone.</param>
+            <returns>Returns the cloned byte array.</returns>
+        </member>
+        <member name="M:RM.Common.Security.Utils.ArrayExtensions.ToHexString(System.Byte[])">
+            <summary>
+            Converts specified <paramref name="data" /> to hex string.
+            </summary>
+            <param name="data">The data to convert.</param>
+            <returns>Hex string.</returns>
+        </member>
+    </members>
+</doc>
